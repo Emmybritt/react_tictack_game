@@ -7,9 +7,9 @@ import TikTakToe from "./screens/TikTakToe";
 const App: React.FC = (props) => {  
 
   return (
-      <TikTakToe />
+      // <TikTakToe />
       // <CallApi />
-      // <Home />
+      <Home />
       
      
   );

@@ -1,0 +1,11 @@
+.container{
+  background-color: #cccccc;
+  width: 50%;
+  margin: 0 auto;
+
+}
+.input{
+  display: block;
+  width: 50%;
+  padding: 4;
+}

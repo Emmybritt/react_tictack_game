@@ -1,26 +1,30 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
+import Forms from '../components/Forms';
+import Header from '../components/Header';
+import RenderUser from '../components/RenderUser';
+import './style.css'
 
 const CallApi = () => {
-  const [countries, setCountries] = useState("")
-  let baseUrl = "https://covid-193.p.rapidapi.com/countries";
-  const options = {
-    method: "GET",
-    headers: {
-      'X-RapidAPI-Key': 'bbfe9f7397msh13132b4b0ddda52p15b2f0jsn85dc13e1d87d',
-      'X-RapidAPI-Host': 'covid-193.p.rapidapi.com'
-    }
-  };
+  const [isOpened, setIsopened]  = useState(false);
+  const [user, setUser] = useState([
+    {name: 'Emmanuel', age: '90', isHappy: true},
+    {name: 'Chibuzor', age: '75', isHappy: false},
+    {name: 'Bukola', age: '50', isHappy: true},
+  ])
 
-  
-
-  async function fetchData() {
-    await fetch(baseUrl, options)
-      .then((res) => res.json())
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+  function openMe() {
+    setIsopened(!isOpened);
   }
-  fetchData();
-  return <div>CallApi</div>;
-};
 
-export default CallApi;
+  return (
+    <div>
+      <Header />
+      <div>{isOpened ? 'I am opened' : 'I am not opened'}</div>
+      <button onClick={openMe}>Open me</button>
+      <RenderUser user={user} />
+      <Forms />
+    </div>
+  )
+}
+
+export default CallApi
